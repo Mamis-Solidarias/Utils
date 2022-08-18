@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MamisSolidarias.Utils.Test", "MamisSolidarias.Utils.Test\MamisSolidarias.Utils.Test.csproj", "{A3EAE422-54D5-42F3-91E5-C060D7B5DC1D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MamisSolidarias.Utils", "MamisSolidarias.Utils\MamisSolidarias.Utils.csproj", "{A3EAE422-54D5-42F3-91E5-C060D7B5DC1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
