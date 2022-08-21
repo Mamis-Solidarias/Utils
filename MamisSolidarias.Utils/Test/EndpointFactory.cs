@@ -33,7 +33,7 @@ public class EndpointConfiguration<TEndpoint> where TEndpoint : class, IEndpoint
     }
     private object?[] ConstructorParameters { get; }
     private ClaimsPrincipal? UserClaims { get; set; }
-    private Action<ServiceCollection>? DependencyInjector { get; set; }
+    private List<Action<ServiceCollection>> DependencyInjector { get; set; } = new();
     
     /// <summary>
     /// It adds services to the endpoint via dependency injection
@@ -41,7 +41,7 @@ public class EndpointConfiguration<TEndpoint> where TEndpoint : class, IEndpoint
     /// <param name="services">Action to inject dependencies</param>
     public EndpointConfiguration<TEndpoint> WithInjectedServices(Action<ServiceCollection> services)
     {
-        DependencyInjector = services;
+        DependencyInjector.Add(services);
         return this;
     }
 
@@ -56,6 +56,40 @@ public class EndpointConfiguration<TEndpoint> where TEndpoint : class, IEndpoint
     }
     
     /// <summary>
+    /// It registers a logger using dependency injection
+    /// </summary>
+    /// <typeparam name="TRequest">Type of the request</typeparam>
+    /// <typeparam name="TResponse">Type of the response</typeparam>
+    /// <returns></returns>
+    public EndpointConfiguration<TEndpoint> WithEndpointLogger<TRequest, TResponse>() where TRequest : notnull, new() where TResponse : notnull, new()
+    {
+        return WithInjectedServices(t => t.AddSingleton(
+            new Mock<ILogger<Endpoint<TRequest, TResponse>>>().Object));
+    }
+    
+    /// <summary>
+    /// It registers a logger using dependency injection
+    /// </summary>
+    /// <typeparam name="TRequest">Type of the request</typeparam>
+    /// <returns></returns>
+    public EndpointConfiguration<TEndpoint> WithEndpointLogger<TRequest>() where TRequest : notnull, new()
+    {
+        return WithInjectedServices(t => t.AddSingleton(
+            new Mock<ILogger<Endpoint<TRequest>>>().Object));
+    }
+    
+    /// <summary>
+    /// It registers a logger using dependency injection
+    /// </summary>
+    /// <typeparam name="TResponse">Type of the response</typeparam>
+    /// <returns></returns>
+    public EndpointConfiguration<TEndpoint> WithWithResponseOnlyLogger<TResponse>() where TResponse : notnull, new()
+    {
+        return this.WithInjectedServices(t => t.AddSingleton(
+            new Mock<ILogger<EndpointWithoutRequest<TResponse>>>().Object));
+    }
+
+    /// <summary>
     /// It generates a mocked endpoint
     /// </summary>
     /// <returns>A mocked FastEndpoint endpoint</returns>
@@ -66,11 +100,10 @@ public class EndpointConfiguration<TEndpoint> where TEndpoint : class, IEndpoint
                 if (UserClaims is not null)
                     ctx.User = UserClaims;
 
-                if (DependencyInjector is not null)
+                if (DependencyInjector.Count is not 0)
                 {
                     var services = new ServiceCollection();
-                    DependencyInjector.Invoke(services);
-                    services.AddSingleton(new Mock<ILogger<TEndpoint>>().Object);
+                    DependencyInjector.ForEach(t => t.Invoke(services));
                     ctx.RequestServices = services.BuildServiceProvider();
                 }
             }, 
