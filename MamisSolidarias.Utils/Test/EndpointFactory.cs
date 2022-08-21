@@ -61,9 +61,9 @@ public class EndpointConfiguration<TEndpoint> where TEndpoint : class, IEndpoint
     /// <typeparam name="TRequest">Type of the request</typeparam>
     /// <typeparam name="TResponse">Type of the response</typeparam>
     /// <returns></returns>
-    public EndpointConfiguration<TEndpoint> WithLogger<TRequest, TResponse>() where TRequest : notnull, new() where TResponse : notnull, new()
+    public EndpointConfiguration<TEndpoint> WithEndpointLogger<TRequest, TResponse>() where TRequest : notnull, new() where TResponse : notnull, new()
     {
-        return this.WithInjectedServices(t => t.AddSingleton(
+        return WithInjectedServices(t => t.AddSingleton(
             new Mock<ILogger<Endpoint<TRequest, TResponse>>>().Object));
     }
     
@@ -72,22 +72,22 @@ public class EndpointConfiguration<TEndpoint> where TEndpoint : class, IEndpoint
     /// </summary>
     /// <typeparam name="TRequest">Type of the request</typeparam>
     /// <returns></returns>
-    public EndpointConfiguration<TEndpoint> WithLogger<TRequest>() where TRequest : notnull, new()
+    public EndpointConfiguration<TEndpoint> WithEndpointLogger<TRequest>() where TRequest : notnull, new()
     {
-        return this.WithInjectedServices(t => t.AddSingleton(
+        return WithInjectedServices(t => t.AddSingleton(
             new Mock<ILogger<Endpoint<TRequest>>>().Object));
     }
     
-    // /// <summary>
-    // /// It registers a logger using dependency injection
-    // /// </summary>
-    // /// <typeparam name="TResponse">Type of the response</typeparam>
-    // /// <returns></returns>
-    // public EndpointConfiguration<TEndpoint> WithLogger<TResponse>() where TResponse : notnull, new()
-    // {
-    //     return this.WithInjectedServices(t => t.AddSingleton(
-    //         new Mock<ILogger<EndpointWithoutRequest<TResponse>>>().Object));
-    // }
+    /// <summary>
+    /// It registers a logger using dependency injection
+    /// </summary>
+    /// <typeparam name="TResponse">Type of the response</typeparam>
+    /// <returns></returns>
+    public EndpointConfiguration<TEndpoint> WithWithResponseOnlyLogger<TResponse>() where TResponse : notnull, new()
+    {
+        return this.WithInjectedServices(t => t.AddSingleton(
+            new Mock<ILogger<EndpointWithoutRequest<TResponse>>>().Object));
+    }
 
     /// <summary>
     /// It generates a mocked endpoint
