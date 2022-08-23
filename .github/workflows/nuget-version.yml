@@ -17,4 +17,4 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: ldellisola/verify-nuget-package-version@v1.0.4
         with:
-            PROJECT_FILE_PATH: '${{$GITHUB_WORKSPACE}}/MamisSolidarias.Utils/MamisSolidarias.Utils.csproj'
+            PROJECT_FILE_PATH: 'MamisSolidarias.Utils/MamisSolidarias.Utils.csproj'
