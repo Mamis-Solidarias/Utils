@@ -14,6 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: ldellisola/verify-nuget-package-version@v1.0.1
+      - uses: ldellisola/verify-nuget-package-version@v1.0.2
         with:
             PROJECT_FILE_PATH: 'MamisSolidarias.Utils/MamisSolidarias.Utils.csproj'
