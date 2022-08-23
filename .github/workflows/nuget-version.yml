@@ -15,5 +15,5 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/verify-nuget-package-version@v1
-          with:
+        with:
             PROJECT_FILE_PATH: 'src/MamisSolidarias.Utils.csproj'
