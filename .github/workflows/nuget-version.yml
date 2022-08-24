@@ -6,6 +6,10 @@ name: nuget-version
 on:
   pull_request:
     branches: [ "main" ]
+    paths:
+      - MamisSolidarias.Utils/**
+      - MamisSolidarias.Utils.sln
+
 
   workflow_dispatch:
 
