@@ -6,6 +6,9 @@ using Moq;
 
 namespace MamisSolidarias.Utils.Test;
 
+/// <summary>
+/// An Endpoint Factory
+/// </summary>
 public static class EndpointFactory
 {
     /// <summary>
@@ -21,6 +24,10 @@ public static class EndpointFactory
     }
 }
 
+/// <summary>
+/// Endpoint Factory builder
+/// </summary>
+/// <typeparam name="TEndpoint">Type of the endpoint to build</typeparam>
 public class EndpointConfiguration<TEndpoint> where TEndpoint : class, IEndpoint
 {
     /// <summary>
@@ -109,4 +116,12 @@ public class EndpointConfiguration<TEndpoint> where TEndpoint : class, IEndpoint
             }, 
             ConstructorParameters
         );
+
+    /// <summary>
+    /// It automatically builds the endpoint when casting to it
+    /// </summary>
+    /// <param name="endpointConfiguration">Endpoint configuration to create the endpoint</param>
+    /// <returns>The endpoint object</returns>
+    public static implicit operator TEndpoint(EndpointConfiguration<TEndpoint> endpointConfiguration)
+        => endpointConfiguration.Build();
 }
