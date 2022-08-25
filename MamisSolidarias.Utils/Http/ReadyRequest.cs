@@ -4,11 +4,19 @@ using System.Text.Json;
 namespace MamisSolidarias.Utils.Http;
 
 
+/// <summary>
+/// Request builder
+/// </summary>
 public class ReadyRequest
 {
     private readonly HttpClient _client;
     private readonly HttpRequestMessage _requestMessage;
 
+    /// <summary>
+    /// It creates a request from an httpclient and a message
+    /// </summary>
+    /// <param name="client"></param>
+    /// <param name="request"></param>
     public ReadyRequest(HttpClient client, HttpRequestMessage request)
     {
         _client = client;
