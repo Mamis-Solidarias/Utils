@@ -7,22 +7,22 @@ namespace MamisSolidarias.Utils.Security;
 /// <summary>
 /// Security policies to control access to the services
 /// </summary>
-public enum Policies
+public static class Policies
 {
     /// <summary>
     /// This policy allows access to users with read capabilities to the system
     /// </summary>
-    CanRead,
-    
+    public static string CanRead => "CanRead";
+
     /// <summary>
     /// This policy allows access to users with write capabilities to the system
     /// </summary>
-    CanWrite,
-    
+    public static string CanWrite => "CanWrite";
+
     /// <summary>
     /// This policy allows access to users with both read and write capabilities to the system
     /// </summary>
-    All
+    public static string All => "All";
 }
 
 /// <summary>
@@ -39,13 +39,13 @@ public static class PolicyExtensions
     public static void ConfigurePolicies(this AuthorizationOptions options, Services service)
     {
         
-        options.AddPolicy(Policies.CanRead.ToString(),
+        options.AddPolicy(Policies.CanRead,
             t=> t.RequireClaim(Constants.PermissionsClaimType, service.ReadPermission()));
         
-        options.AddPolicy(Policies.CanWrite.ToString(),
+        options.AddPolicy(Policies.CanWrite,
             t=> t.RequireClaim(Constants.PermissionsClaimType, service.WritePermission()));
         
-        options.AddPolicy(Policies.All.ToString(),
+        options.AddPolicy(Policies.All,
             t=> 
                 t.RequireClaim(Constants.PermissionsClaimType, service.ReadPermission())
                 .RequireClaim(Constants.PermissionsClaimType, service.WritePermission()));
