@@ -12,7 +12,11 @@ public enum Services
     /// <summary>
     /// Beneficiaries service
     /// </summary>
-    Beneficiaries
+    Beneficiaries,
+    /// <summary>
+    /// Donors service
+    /// </summary>
+    Donors
 }
 
 /// <summary>
