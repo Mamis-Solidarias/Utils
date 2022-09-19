@@ -18,6 +18,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ldellisola/verify-nuget-package-version@v1.1.1
+      - uses: ldellisola/verify-nuget-package-version@v1.2.0
         with:
             PROJECT_FILE_PATH: 'MamisSolidarias.Utils/MamisSolidarias.Utils.csproj'
