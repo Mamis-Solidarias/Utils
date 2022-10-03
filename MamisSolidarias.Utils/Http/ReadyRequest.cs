@@ -44,8 +44,11 @@ public class ReadyRequest
     public async Task<TResponse?> ExecuteAsync<TResponse>(CancellationToken token)
     {
         var response = await _client.SendAsync(_requestMessage, token);
-        response.EnsureSuccessStatusCode();
-        return await response.Content.ReadFromJsonAsync<TResponse>(cancellationToken: token);
+        if (response.IsSuccessStatusCode)
+            return await response.Content.ReadFromJsonAsync<TResponse>(cancellationToken: token);
+        
+        var msg = await response.Content.ReadAsStringAsync(token);
+        throw new HttpRequestException(msg,null,response.StatusCode);
     }
     
     /// <summary>
@@ -56,7 +59,11 @@ public class ReadyRequest
     public async Task ExecuteAsync(CancellationToken token)
     {
         var response = await _client.SendAsync(_requestMessage, token);
-        response.EnsureSuccessStatusCode();
+        if (!response.IsSuccessStatusCode)
+        {
+            var msg = await response.Content.ReadAsStringAsync(token);
+            throw new HttpRequestException(msg,null,response.StatusCode);
+        }
     }
 
     /// <summary>
