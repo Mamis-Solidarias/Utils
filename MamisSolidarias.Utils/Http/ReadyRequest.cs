@@ -30,8 +30,7 @@ public class ReadyRequest
     /// <typeparam name="TRequest">Type of the request body</typeparam>
     public ReadyRequest WithContent<TRequest>(TRequest body)
     {
-        var data = JsonSerializer.SerializeToUtf8Bytes(body);
-        _requestMessage.Content = new ByteArrayContent(data);
+        _requestMessage.Content = JsonContent.Create(body);
         return this;
     }
 
