@@ -16,7 +16,11 @@ public enum Services
     /// <summary>
     /// Donors service
     /// </summary>
-    Donors
+    Donors,
+    /// <summary>
+    /// Campaigns service
+    /// </summary>
+    Campaigns
 }
 
 /// <summary>
