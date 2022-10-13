@@ -6,14 +6,14 @@
         <Nullable>enable</Nullable>
         <Authors>MamisSolidarias</Authors>
         <PackageProjectUrl>https://github.com/Mamis-Solidarias/Utils</PackageProjectUrl>
-        <PackageVersion>1.3.6</PackageVersion>
+        <PackageVersion>1.3.7</PackageVersion>
         <RepositoryUrl>https://github.com/Mamis-Solidarias/Utils</RepositoryUrl>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
     
     <ItemGroup>
-      <PackageReference Include="FastEndpoints" Version="5.1.0" />
-      <PackageReference Include="FastEndpoints.Security" Version="5.1.0" />
+      <PackageReference Include="FastEndpoints" Version="5.2.0" />
+      <PackageReference Include="FastEndpoints.Security" Version="5.2.0" />
       <PackageReference Include="Moq" Version="4.18.2" />
     </ItemGroup>
 
