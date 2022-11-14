@@ -1,14 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <Authors>MamisSolidarias</Authors>
         <PackageProjectUrl>https://github.com/Mamis-Solidarias/Utils</PackageProjectUrl>
-        <PackageVersion>1.4</PackageVersion>
+        <PackageVersion>1.4.1</PackageVersion>
         <RepositoryUrl>https://github.com/Mamis-Solidarias/Utils</RepositoryUrl>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
     </PropertyGroup>
     
     <ItemGroup>
