@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MamisSolidarias.Utils", "MamisSolidarias.Utils\MamisSolidarias.Utils.csproj", "{A3EAE422-54D5-42F3-91E5-C060D7B5DC1D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MamisSolidarias.Messages", "MamisSolidarias.Messages\MamisSolidarias.Messages.csproj", "{D220EE32-2021-445A-BF48-FE04E1369609}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{A3EAE422-54D5-42F3-91E5-C060D7B5DC1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3EAE422-54D5-42F3-91E5-C060D7B5DC1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3EAE422-54D5-42F3-91E5-C060D7B5DC1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D220EE32-2021-445A-BF48-FE04E1369609}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D220EE32-2021-445A-BF48-FE04E1369609}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D220EE32-2021-445A-BF48-FE04E1369609}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D220EE32-2021-445A-BF48-FE04E1369609}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
