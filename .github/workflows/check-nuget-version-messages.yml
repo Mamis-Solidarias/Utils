@@ -1,0 +1,20 @@
+name: check nuget version of MamisSolidarias.Messages
+
+on:
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - MamisSolidarias.Messages/**
+      - MamisSolidarias.Utils.sln
+
+
+  workflow_dispatch:
+
+jobs:
+  check-nuget-version-messages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ldellisola/verify-nuget-package-version@v1.4.0
+        with:
+            PROJECT_FILE_PATH: 'MamisSolidarias.Messages/MamisSolidarias.Messages.csproj'
