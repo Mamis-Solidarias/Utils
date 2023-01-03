@@ -5,16 +5,15 @@
         <Nullable>enable</Nullable>
         <Authors>MamisSolidarias</Authors>
         <PackageProjectUrl>https://github.com/Mamis-Solidarias/Utils</PackageProjectUrl>
-        <PackageVersion>1.4.3</PackageVersion>
+        <PackageVersion>1.4.4</PackageVersion>
         <RepositoryUrl>https://github.com/Mamis-Solidarias/Utils</RepositoryUrl>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
     </PropertyGroup>
     
     <ItemGroup>
-      <PackageReference Include="FastEndpoints" Version="5.5.0" />
-      <PackageReference Include="FastEndpoints.Security" Version="5.5.0" />
-      <PackageReference Include="Moq" Version="4.18.3" />
+      <PackageReference Include="FastEndpoints.Security" Version="5.6.0" />
+      <PackageReference Include="Moq" Version="4.18.4" />
     </ItemGroup>
 
 </Project>
