@@ -20,7 +20,12 @@ public enum Services
     /// <summary>
     /// Campaigns service
     /// </summary>
-    Campaigns
+    Campaigns,
+    
+    /// <summary>
+    /// Donations service
+    /// </summary>
+    Donations
 }
 
 /// <summary>
