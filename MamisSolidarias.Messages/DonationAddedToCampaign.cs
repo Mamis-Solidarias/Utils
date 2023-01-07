@@ -3,7 +3,12 @@ namespace MamisSolidarias.Messages;
 public enum Campaigns
 {
     UnaMochiComoLaTuya,
-    JuntosALaPar
+    JuntosALaPar,
+    Abrigaditos,
+    ApadrinaMiSonriza,
+    Navidemos,
+    NavidadCompartida,
+    Misiones
 }
 
 /// <param name="DonationId">Id of the donation</param>
