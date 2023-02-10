@@ -12,7 +12,7 @@
     </PropertyGroup>
     
     <ItemGroup>
-      <PackageReference Include="FastEndpoints.Security" Version="5.7.0" />
+      <PackageReference Include="FastEndpoints.Security" Version="5.7.1" />
       <PackageReference Include="Moq" Version="4.18.4" />
     </ItemGroup>
 
