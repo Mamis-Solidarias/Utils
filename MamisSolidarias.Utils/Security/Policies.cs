@@ -1,4 +1,3 @@
-using FastEndpoints.Security;
 using Microsoft.AspNetCore.Authorization;
 
 namespace MamisSolidarias.Utils.Security;
@@ -30,6 +29,7 @@ public static class Policies
 /// </summary>
 public static class PolicyExtensions
 {
+    private const string permissionClaimType = "permission";
     /// <summary>
     /// It sets up policies for a given service
     /// </summary>
@@ -38,17 +38,16 @@ public static class PolicyExtensions
     /// <returns></returns>
     public static void ConfigurePolicies(this AuthorizationOptions options, Services service)
     {
-        
         options.AddPolicy(Policies.CanRead,
-            t=> t.RequireClaim(Constants.PermissionsClaimType, service.ReadPermission()));
+            t=> t.RequireClaim(permissionClaimType, service.ReadPermission()));
         
         options.AddPolicy(Policies.CanWrite,
-            t=> t.RequireClaim(Constants.PermissionsClaimType, service.WritePermission()));
+            t=> t.RequireClaim(permissionClaimType, service.WritePermission()));
         
         options.AddPolicy(Policies.All,
             t=> 
-                t.RequireClaim(Constants.PermissionsClaimType, service.ReadPermission())
-                .RequireClaim(Constants.PermissionsClaimType, service.WritePermission()));
+                t.RequireClaim(permissionClaimType, service.ReadPermission())
+                .RequireClaim(permissionClaimType, service.WritePermission()));
         
     }
 }
