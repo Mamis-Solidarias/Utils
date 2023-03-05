@@ -5,7 +5,7 @@
         <Nullable>enable</Nullable>
         <Authors>MamisSolidarias</Authors>
         <PackageProjectUrl>https://github.com/Mamis-Solidarias/Utils</PackageProjectUrl>
-        <PackageVersion>1.5.1</PackageVersion>
+        <PackageVersion>1.5.2</PackageVersion>
         <RepositoryUrl>https://github.com/Mamis-Solidarias/Utils</RepositoryUrl>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
