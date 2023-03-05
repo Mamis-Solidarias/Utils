@@ -29,7 +29,11 @@ public static class Policies
 /// </summary>
 public static class PolicyExtensions
 {
-    private const string permissionClaimType = "permission";
+    /// <summary>
+    /// Claim type for permissions
+    /// </summary>
+    public const string PermissionClaimType = "permission";
+    
     /// <summary>
     /// It sets up policies for a given service
     /// </summary>
@@ -39,15 +43,15 @@ public static class PolicyExtensions
     public static void ConfigurePolicies(this AuthorizationOptions options, Services service)
     {
         options.AddPolicy(Policies.CanRead,
-            t=> t.RequireClaim(permissionClaimType, service.ReadPermission()));
+            t=> t.RequireClaim(PermissionClaimType, service.ReadPermission()));
         
         options.AddPolicy(Policies.CanWrite,
-            t=> t.RequireClaim(permissionClaimType, service.WritePermission()));
+            t=> t.RequireClaim(PermissionClaimType, service.WritePermission()));
         
         options.AddPolicy(Policies.All,
             t=> 
-                t.RequireClaim(permissionClaimType, service.ReadPermission())
-                .RequireClaim(permissionClaimType, service.WritePermission()));
+                t.RequireClaim(PermissionClaimType, service.ReadPermission())
+                .RequireClaim(PermissionClaimType, service.WritePermission()));
         
     }
 }
