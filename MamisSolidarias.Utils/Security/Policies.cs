@@ -32,7 +32,7 @@ public static class PolicyExtensions
     /// <summary>
     /// Claim type for permissions
     /// </summary>
-    public const string PermissionClaimType = "permission";
+    public const string PermissionClaimType = "permissions";
     
     /// <summary>
     /// It sets up policies for a given service
